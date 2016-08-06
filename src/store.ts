@@ -7,7 +7,11 @@ export interface IUpdatable {
    update();
 }
 
-export let debug = true;
+export let debug = false;
+
+export function setDebug(mode: boolean):void {
+   debug = mode;
+}
 
 export class Store {
    private listeners: IUpdatable[] = [];

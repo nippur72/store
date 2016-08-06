@@ -1,6 +1,6 @@
 {
   "name": "@nippur72/store",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simplified stores similar to Flux/Redux written in TypeScript",
   "main": "out/index.js",
   "typings": "out/index",

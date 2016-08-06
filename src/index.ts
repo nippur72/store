@@ -1,2 +1,2 @@
-import { Store, debug } from "./store";
-export { Store, debug };
+import { Store, debug, setDebug } from "./store";
+export { Store, debug, setDebug };
