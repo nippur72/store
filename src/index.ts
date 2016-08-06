@@ -1,2 +1,2 @@
-import { Store } from "./store";
-export { Store };
+import { Store, debug } from "./store";
+export { Store, debug };
