@@ -13,7 +13,8 @@
         "sourceMap": true,
         "experimentalDecorators": true,
         "jsx": "react",
-        "declaration": true
+        "declaration": true,
+        "outDir": "out/"
     },
     "exclude": [
         "node_modules"

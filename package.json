@@ -1,8 +1,9 @@
 {
   "name": "@nippur72/store",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Simplified stores similar to Flux/Redux written in TypeScript",
-  "main": "store.js",
+  "main": "out/index.js",
+  "typings": "out/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +11,6 @@
     "type": "git",
     "url": "https//github.com/nippur72/store.git"
   },
-  "keywords": [
-    "typescript",
-    "flux",
-    "redux",
-    "store"
-  ],
-  "typings": "store.d.ts",
   "author": "Antonino Porcino <nino.porcino@gmail.com>",
   "license": "MIT",
   "devDependencies": {
