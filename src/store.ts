@@ -9,6 +9,10 @@ export interface IUpdatable {
 
 export let debug = false;
 
+// #if DEBUG_STORE
+debug = true;
+// #endif
+
 export function setDebug(mode: boolean):void {
    debug = mode;
 }
@@ -21,9 +25,11 @@ export class Store {
    }
 
    update() {
+      // #if DEBUG_STORE
       if(debug) {
          this.showDiff();
       }
+      // #endif
 
       this.listeners.forEach(listener => {
          // calls listener.update() with correct "this"
@@ -42,19 +48,24 @@ export class Store {
 
       this.listeners.push(listener);
 
+      // #if DEBUG_STORE
       if(debug) {
          console.log(`store '${this.name}': subscribed`);
       }
+      // #endif
    }
 
    unsubscribe(listener) {
       this.listeners = this.listeners.filter(item => item!==listener);
 
+      // #if DEBUG_STORE
       if(debug) {
          console.log(`store '${this.name}': unsubscribed`);
       }
+      // #endif
    }
 
+   // #if DEBUG_STORE
    showDiff() {
       const oldState = this.oldState;
       const newState = this["data"];
@@ -76,16 +87,20 @@ export class Store {
 
       this.oldState = _.cloneDeep(newState);
    }
+   // #endif
 
    error(exception) {
+      // #if DEBUG_STORE
       if(debug) {
          console.error(`store '${this.name}': exception raised while performing action`);
          console.error(exception);
       }
+      // #endif
    }
 
    // @Store.action decorator
    static action() {
+      // #if DEBUG_STORE
       if(debug) {
          return (target: any, name: string, descriptor: TypedPropertyDescriptor<any>) => {
             const oldfun = target[name] as Function;
@@ -110,6 +125,10 @@ export class Store {
             };
          }
       }
-      else return ()=>{};
+      // #endif
+
+      // #if DEBUG_STORE !== undefined
+      return ()=>{};
+      // endif
    }
 }

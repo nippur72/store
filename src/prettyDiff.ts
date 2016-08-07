@@ -2,6 +2,7 @@
 // odiff: https://github.com/Tixit/odiff
 export function prettyDiff(d: deepDiff.IDiff)
 {
+   // #if DEBUG_STORE
    try
    {
       var path = "";
@@ -56,6 +57,7 @@ export function prettyDiff(d: deepDiff.IDiff)
    {
       return ex.message;
    }
+   // #endif
 
    /*
         kind: string;
