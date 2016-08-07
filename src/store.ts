@@ -1,21 +1,19 @@
 ﻿
+// #if DEBUG_STORE
 import { cloneDeep } from "lodash";
 import { diff } from "deep-diff";
 import { prettyDiff } from "./prettyDiff";
+// #endif
 
 export interface IUpdatable {
    update();
 }
 
-export let debug = false;
+let debug = false;
 
 // #if DEBUG_STORE
 debug = true;
 // #endif
-
-export function setDebug(mode: boolean):void {
-   debug = mode;
-}
 
 export class Store {
    private listeners: IUpdatable[] = [];
@@ -129,6 +127,6 @@ export class Store {
 
       // #if DEBUG_STORE !== undefined
       return ()=>{};
-      // endif
+      // #endif
    }
 }
