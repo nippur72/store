@@ -125,7 +125,7 @@ export class Store {
       }
       // #endif
 
-      // #if DEBUG_STORE !== undefined
+      // #if DEBUG_STORE === undefined
       return ()=>{};
       // #endif
    }
